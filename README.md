@@ -12,7 +12,6 @@
 
 - 检测系统中是否启用了 CAudioLimiter
 - 一键删除 CAudioLimiter 相关注册表项和/或驱动文件
-- 备份原始配置（可选）
 - 支持 Windows 7/8/10/11（x86 及 x64）
 
 ## 使用方法
@@ -49,6 +48,14 @@
 - 第三方音频增强软件或 DSP 插件
 
 本工具仅移除 CAudioLimiter，不会影响这些其他设置。
+
+## 为什么脚本需要用TrustedInstaller来运行呢
+
+脚本所涉及的注册表键值属于系统关键部分，仅用Administrator或者SYSTEM权限是无法进行操作的，在权限层面两者也没有任何权力从属，因为这仅受TrustedInstaller管理。这时候直接用TrustedInstaller权限来进行删除是一个更明智的选择。
+
+## 脚本“用管理员身份运行”后，没有任何效果甚至报错，怎么办
+
+因为安全原因，脚本并没有内置TrustedInstaller提权，以此防止恶意用途。您可以直接下载并运行Nsudo来打开该脚本（项目可直接在Github上搜索得到）
 
 ## 贡献
 
